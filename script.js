@@ -1,30 +1,37 @@
-const yesBtn = document.getElementById('yesBtn');
-const noBtn = document.getElementById('noBtn');
-const responseText = document.getElementById('response');
-const bgMusic = document.getElementById('bgMusic');
+const yesBtn = document.getElementById('yes-btn');
+const noBtn = document.getElementById('no-btn');
+const message = document.getElementById('message');
+const carouselContainer = document.getElementById('carousel-container');
+const carousel = document.querySelector('.carousel');
+const carouselItems = document.querySelectorAll('.carousel__item');
 
-let noClickCount = 0; // 记录“不要”按钮点击次数
+let noBtnClickCount = 0;
 
-// 页面加载时自动播放背景音乐
-window.addEventListener('load', () => {
-    bgMusic.play();
-});
-
+// 点击“可以”按钮
 yesBtn.addEventListener('click', () => {
-    responseText.textContent = "贴贴哦，小屁孩❤️";
-    yesBtn.style.display = 'none'; // 隐藏“可以”按钮
-    noBtn.style.display = 'none'; // 隐藏“不要”按钮
+    window.location.href = 'yes.html'; // 跳转到“可以”页面
 });
 
+// 点击“不要”按钮
 noBtn.addEventListener('click', () => {
-    noClickCount++;
-    if (noClickCount === 1) {
-        responseText.textContent = "确定不考虑一下？";
-    } else if (noClickCount === 2) {
-        responseText.textContent = "再考虑一下嘛？";
-    } else {
-        responseText.textContent = "不要也得要！贴贴哦，小屁孩❤️";
-        yesBtn.style.display = 'none'; // 隐藏“可以”按钮
-        noBtn.style.display = 'none'; // 隐藏“不要”按钮
+    noBtnClickCount++;
+    if (noBtnClickCount === 1) {
+        message.textContent = '你确定？';
+        carouselContainer.classList.remove('hidden'); // 显示3D轮播图
+    } else if (noBtnClickCount === 2) {
+        message.textContent = '再考虑一下嘛';
+    } else if (noBtnClickCount === 3) {
+        window.location.href = 'no.html'; // 跳转到“不要”页面
     }
+});
+
+// 鼠标移动到图片上时停止转动并放大
+carouselItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        carousel.style.animationPlayState = 'paused'; // 暂停动画
+    });
+
+    item.addEventListener('mouseleave', () => {
+        carousel.style.animationPlayState = 'running'; // 恢复动画
+    });
 });
