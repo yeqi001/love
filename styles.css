@@ -19,6 +19,13 @@ h1 {
     margin-bottom: 20px;
 }
 
+.love-image {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 .buttons {
     display: flex;
     gap: 20px;

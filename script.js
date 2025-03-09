@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
 });
 
 yesBtn.addEventListener('click', () => {
-    responseText.textContent = "贴贴❤️";
+    responseText.textContent = "贴贴哦，小屁孩❤️";
     yesBtn.style.display = 'none'; // 隐藏“可以”按钮
     noBtn.style.display = 'none'; // 隐藏“不要”按钮
 });
@@ -19,11 +19,11 @@ yesBtn.addEventListener('click', () => {
 noBtn.addEventListener('click', () => {
     noClickCount++;
     if (noClickCount === 1) {
-        responseText.textContent = "你确定？";
+        responseText.textContent = "确定不考虑一下？";
     } else if (noClickCount === 2) {
-        responseText.textContent = "再考虑一下吗？";
+        responseText.textContent = "再考虑一下嘛？";
     } else {
-        responseText.textContent = "不要也得要！贴贴❤️";
+        responseText.textContent = "不要也得要！贴贴哦，小屁孩❤️";
         yesBtn.style.display = 'none'; // 隐藏“可以”按钮
         noBtn.style.display = 'none'; // 隐藏“不要”按钮
     }
